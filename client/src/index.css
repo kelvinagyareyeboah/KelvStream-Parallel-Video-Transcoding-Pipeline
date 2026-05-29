@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================================
+   KELVSTREAM DESIGN SYSTEM
+   Premium Dark Purple/Violet Theme
+   ========================================= */
+
+:root {
+  --ks-bg-primary: #0a0a0f;
+  --ks-bg-secondary: #111118;
+  --ks-bg-card: #16161f;
+  --ks-bg-elevated: #1e1e2e;
+  --ks-bg-hover: #252535;
+
+  --ks-purple-primary: #7c3aed;
+  --ks-purple-light: #8b5cf6;
+  --ks-purple-glow: #a78bfa;
+  --ks-violet-accent: #6d28d9;
+  --ks-pink-accent: #c084fc;
+
+  --ks-text-primary: #f1f0ff;
+  --ks-text-secondary: #9d9dba;
+  --ks-text-muted: #5c5c7a;
+
+  --ks-border: #2a2a3e;
+  --ks-border-light: #3a3a52;
+
+  --ks-gradient-hero: linear-gradient(135deg, #7c3aed 0%, #c084fc 50%, #6d28d9 100%);
+  --ks-gradient-card: linear-gradient(180deg, rgba(124, 58, 237, 0.08) 0%, transparent 100%);
+  --ks-gradient-sidebar: linear-gradient(180deg, #111118 0%, #0a0a0f 100%);
+
+  --ks-shadow-purple: 0 0 30px rgba(124, 58, 237, 0.25);
+  --ks-shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+
+  --ks-navbar-height: 70px;
+  --ks-sidebar-width: 220px;
+  --ks-radius-sm: 8px;
+  --ks-radius-md: 12px;
+  --ks-radius-lg: 16px;
+  --ks-radius-xl: 24px;
+}
+
+/* ---- GLOBAL RESET & BASE ---- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--ks-bg-primary);
+  color: var(--ks-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ---- SCROLLBAR ---- */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ks-purple-primary), var(--ks-violet-accent));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- KELVSTREAM NAVBAR ---- */
+
+.ks-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--ks-navbar-height);
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ks-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  gap: 16px;
+}
+
+.ks-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ks-brand-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--ks-gradient-hero);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: var(--ks-shadow-purple);
+}
+
+.ks-brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: var(--ks-gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+/* ---- SEARCH BAR ---- */
+
+.ks-search-form {
+  display: flex;
+  align-items: center;
+  background: var(--ks-bg-elevated);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius-xl);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  flex: 1;
+  max-width: 520px;
+}
+
+.ks-search-form:focus-within {
+  border-color: var(--ks-purple-primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.ks-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  color: var(--ks-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
+.ks-search-input::placeholder {
+  color: var(--ks-text-muted);
+}
+
+.ks-search-btn {
+  background: var(--ks-purple-primary);
+  border: none;
+  padding: 10px 16px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.ks-search-btn:hover {
+  background: var(--ks-purple-light);
+}
+
+/* ---- SIDEBAR ---- */
+
+.ks-sidebar {
+  background: var(--ks-gradient-sidebar);
+  padding: 16px 12px;
+  border-right: 1px solid var(--ks-border);
+  overflow-y: auto;
+  min-height: calc(100vh - var(--ks-navbar-height));
+}
+
+.ks-category-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+  border-radius: var(--ks-radius-md);
+  border: none;
+  background: transparent;
+  color: var(--ks-text-secondary);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: left;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ks-category-btn:hover {
+  background: var(--ks-bg-hover);
+  color: var(--ks-text-primary);
+}
+
+.ks-category-btn.active {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(109, 40, 217, 0.2));
+  color: var(--ks-purple-glow);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.15);
+}
+
+.ks-category-icon {
+  font-size: 18px !important;
+  flex-shrink: 0;
+}
+
+/* ---- VIDEO CARDS ---- */
+
+.ks-video-card {
+  background: var(--ks-bg-card);
+  border-radius: var(--ks-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--ks-border);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  width: 320px;
+}
+
+.ks-video-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ks-purple-primary);
+  box-shadow: var(--ks-shadow-purple), var(--ks-shadow-card);
+}
+
+.ks-thumbnail-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: var(--ks-bg-elevated);
+}
+
+.ks-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ks-video-card:hover .ks-thumbnail {
+  transform: scale(1.04);
+}
+
+.ks-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.ks-video-card:hover .ks-play-overlay {
+  opacity: 1;
+}
+
+.ks-play-btn {
+  width: 52px;
+  height: 52px;
+  background: var(--ks-gradient-hero);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--ks-shadow-purple);
+}
+
+.ks-local-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--ks-gradient-hero);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ks-card-body {
+  padding: 12px;
+}
+
+.ks-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ks-text-primary);
+  line-height: 1.4;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ks-card-channel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--ks-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ks-card-channel:hover {
+  color: var(--ks-purple-glow);
+}
+
+/* ---- PIPELINE STATUS BOX ---- */
+
+.ks-pipeline-box {
+  border-radius: var(--ks-radius-lg);
+  border: 1px dashed var(--ks-purple-primary);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(10, 10, 15, 0.8));
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.ks-pipeline-pulse {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--ks-purple-light);
+  border-radius: 50%;
+  animation: ks-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ks-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ---- FEED HEADER ---- */
+
+.ks-feed-header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ks-text-primary);
+  margin-bottom: 24px;
+}
+
+.ks-feed-header span {
+  background: var(--ks-gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- CHANNEL CARD ---- */
+
+.ks-channel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--ks-bg-card);
+  border: 1px solid var(--ks-border);
+  border-radius: var(--ks-radius-lg);
+  padding: 24px 16px;
+  width: 200px;
+  text-align: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ks-channel-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--ks-purple-primary);
+  box-shadow: var(--ks-shadow-purple);
+}
+
+/* ---- VIDEO DETAIL PAGE ---- */
+
+.ks-video-meta {
+  padding: 16px;
+  background: var(--ks-bg-secondary);
+  border-radius: 0 0 var(--ks-radius-md) var(--ks-radius-md);
+  border: 1px solid var(--ks-border);
+  border-top: none;
+}
+
+.ks-video-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ks-text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.ks-video-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--ks-text-muted);
+  font-weight: 500;
+}
+
+.ks-stat-pill {
+  background: var(--ks-bg-elevated);
+  border: 1px solid var(--ks-border);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: var(--ks-text-secondary);
+}
+
+/* ---- UTILITY ANIMATIONS ---- */
+
+@keyframes ks-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ks-fade-in {
+  animation: ks-fade-in 0.35s ease forwards;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .ks-sidebar {
+    flex-direction: row !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: auto;
+    padding: 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--ks-border);
+  }
+
+  .ks-category-btn {
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 12px;
+    font-size: 0.7rem;
+    min-width: fit-content;
+  }
+
+  .ks-video-card {
+    width: 100%;
+  }
+}
